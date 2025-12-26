@@ -47,5 +47,25 @@ export const authOptions: NextAuthOptions = {
               }
             }
         })
-    ]
+    ],
+    callbacks: { //authorize values get sent to jwt and jwt sends those to session
+      async jwt({ token, user}) {
+        if (user) {
+          return {
+            ...token,
+            username: user.username
+          }
+        }
+        return token
+      },
+      async session({ session, token }) {
+        return {
+          ...session,
+          user: {
+            ...session.user,
+            username: token.username,
+          }
+        }
+    },    
+    }
 }
