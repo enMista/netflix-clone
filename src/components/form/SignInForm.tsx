@@ -46,6 +46,7 @@ const SignInForm = () => {
     if (signInData?.error) {
       console.log(signInData.error);
     } else {
+      router.refresh();
       router.push('/admin') //navigate us to the admin page lol
     }
   };
