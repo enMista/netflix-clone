@@ -1,11 +1,9 @@
 import SignInForm from "@/components/form/SignInForm";
 
-const page = () => {
+export default function Home() {
   return (
-    <div className="w-full">
+    <div>
       <SignInForm />
     </div>
   );
-};
-
-export default page;
+}
