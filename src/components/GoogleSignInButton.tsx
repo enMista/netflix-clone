@@ -11,7 +11,10 @@ const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
   const loginWithGoogle = () => signIn("google", { callbackUrl: "/profiles" });
 
   return (
-    <Button onClick={loginWithGoogle} className="w-full">
+    <Button
+      onClick={loginWithGoogle}
+      className="w-full mt-6 bg-red-600 text-white hover:bg-red-700"
+    >
       {children}
     </Button>
   );
