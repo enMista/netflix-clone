@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Provider from "@/components/Provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,6 @@ export default function RootLayout({
         <Provider>
           <div className="relative min-h-screen w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover flex flex-col justify-center items-center">
             <div className="absolute inset-0 bg-black/60 lg:bg-black/50 flex flex-col justify-center items-center p-4 w-full">
-              <Navbar />
               {children}
             </div>
           </div>
