@@ -1,8 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 // import { HandMetal } from "lucide-react";
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
 import UserAccountnav from "./UserAccountnav";
 import NavbarItem from "./NavbarItem";
 import { BsChevronDown, BsSearch, BsBell } from "react-icons/bs";
@@ -10,11 +10,12 @@ import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
 import { useCallback } from "react";
 import AccountMenu from "./AccountMenu";
+import { useSession } from "next-auth/react";
 
 const TOP_OFFSET = 66;
 
-const Navbar = async () => {
-  const session = await getServerSession(authOptions);
+const Navbar = () => {
+  const { data: session } = useSession();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
@@ -96,7 +97,7 @@ const Navbar = async () => {
             className="flex flex-row items-center gap-2 cursor-pointer relative"
           >
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-              <img src="/images/default-blue.png" alt="Profile" />
+              <img src="/images/profile1.png" alt="Profile" />
             </div>
             <BsChevronDown
               className={`text-white transition ${
