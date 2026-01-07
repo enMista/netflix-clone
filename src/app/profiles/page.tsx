@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Image from "next/image";
 
 const Profiles = () => {
   const { data: session, status } = useSession();
@@ -26,7 +27,7 @@ const Profiles = () => {
     <div className="flex items-center min-h-screen w-screen justify-center bg-zinc-900">
       <div className="flex flex-col">
         <h1 className="text-3xl md:text-6xl text-white text-center">
-          Who's watching?
+          Who&apos;s watching?
         </h1>
         <div className="flex items-center justify-center gap-8 mt-10">
           <div onClick={() => router.push("/")}>
@@ -46,7 +47,13 @@ const Profiles = () => {
                   overflow-hidden
               "
               >
-                <img src="images/profile1.png" alt="Profile1" />
+                <Image
+                  src="/images/profile1.png"
+                  alt="Profile1"
+                  width={176}
+                  height={176}
+                  className="object-cover"
+                />
               </div>
               <div
                 className="

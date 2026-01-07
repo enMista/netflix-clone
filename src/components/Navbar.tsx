@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useCallback } from "react";
 import AccountMenu from "./AccountMenu";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 const TOP_OFFSET = 66;
 
@@ -50,9 +51,11 @@ const Navbar = () => {
         }`}
       >
         <Link href="/">
-          <img
+          <Image
             src="/images/logo.png"
             alt="Logo"
+            width={28}
+            height={28}
             className="h-4 lg:h-7 hover:opacity-80 transition"
           />
         </Link>
@@ -97,7 +100,13 @@ const Navbar = () => {
             className="flex flex-row items-center gap-2 cursor-pointer relative"
           >
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-              <img src="/images/profile1.png" alt="Profile" />
+              <Image
+                src="/images/profile1.png"
+                alt="Profile"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
             </div>
             <BsChevronDown
               className={`text-white transition ${

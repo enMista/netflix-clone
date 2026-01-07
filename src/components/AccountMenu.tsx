@@ -6,11 +6,11 @@ interface AccountMenuProps {
 }
 
 const AccountMenu = ({ visible }: AccountMenuProps) => {
+  const { data: session } = useSession();
+
   if (!visible) {
     return null;
   }
-
-  const { data: session } = useSession();
 
   return (
     <div className="bg-black w-56 absolute top-14 right-0 py-5 flex-col border-2 border-gray-800 flex">
